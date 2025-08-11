@@ -1,7 +1,8 @@
-import React, { lazy, useEffect } from 'react';
+import React, { lazy } from 'react';
 import Home from './pages/Home';
-import { BrowserRouter, createBrowserRouter, RouterProvider, useLocation } from 'react-router-dom';
-const MainLayout = lazy(() => import('./layout/MainLayout'));
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import MainLayout from './layout/MainLayout';
+
 const ProductPage = lazy(() => import('./pages/ProductPage'));
 const ServicesPage = lazy(() => import('./pages/ServicePage'));
 const ContactPage = lazy(() => import('./pages/ContactUs'));
