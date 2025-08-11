@@ -60,10 +60,10 @@ export default function HeaderBanner({
           )}
 
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
             {title}
             {subtitle && (
-              <span className="block text-primary-200 text-3xl md:text-4xl mt-2">
+              <span className="block text-primary-200 text-xl md:text-2xl mt-2">
                 {subtitle}
               </span>
             )}
@@ -71,7 +71,7 @@ export default function HeaderBanner({
 
           {/* Description */}
           {description && (
-            <p className="text-lg md:text-xl mb-8 text-primary-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-md md:text-lg mb-8 text-primary-100 max-w-3xl mx-auto leading-relaxed">
               {description}
             </p>
           )}
