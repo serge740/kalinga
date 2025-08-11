@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ChevronRight, Heart, Star, ShoppingCart, Eye, Filter, Search } from 'lucide-react';
+import { ChevronRight, Heart, Star, ShoppingCart, Eye, Filter, Search, Home, ArrowRight } from 'lucide-react';
+import HeaderBanner from '../components/HeaderBanner';
 
 const ProductPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -14,7 +15,7 @@ const ProductPage = () => {
       image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
       features: ["A17 Pro Chip", "Titanium Design", "Action Button"],
       badge: "New Arrival",
-      badgeColor: "bg-gradient-to-r from-red-500 to-red-600",
+      badgeColor: "bg-gradient-to-r from-primary-500 to-primary-600",
       rating: 4.9,
       reviews: 2547
     },
@@ -25,7 +26,7 @@ const ProductPage = () => {
       image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
       features: ["M3 Chip", "18-hour Battery", "Liquid Retina"],
       badge: "Best Seller",
-      badgeColor: "bg-gradient-to-r from-red-600 to-red-700",
+      badgeColor: "bg-gradient-to-r from-primary-600 to-primary-700",
       rating: 4.8,
       reviews: 1823
     },
@@ -36,7 +37,7 @@ const ProductPage = () => {
       image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=400&fit=crop",
       features: ["Spatial Audio", "Active Noise Cancel", "20-hour Battery"],
       badge: "Featured",
-      badgeColor: "bg-gradient-to-r from-red-400 to-red-500",
+      badgeColor: "bg-gradient-to-r from-primary-400 to-primary-500",
       rating: 4.7,
       reviews: 3241
     },
@@ -47,7 +48,7 @@ const ProductPage = () => {
       image: "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=400&h=400&fit=crop",
       features: ["45MP Full Frame", "8K Video", "Dual Pixel AF"],
       badge: "Professional",
-      badgeColor: "bg-gradient-to-r from-red-700 to-red-800",
+      badgeColor: "bg-gradient-to-r from-primary-700 to-primary-800",
       rating: 4.9,
       reviews: 892
     },
@@ -58,7 +59,7 @@ const ProductPage = () => {
       image: "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=400&fit=crop",
       features: ["Titanium Case", "GPS + Cellular", "60-hour Battery"],
       badge: "Adventure Ready",
-      badgeColor: "bg-gradient-to-r from-red-500 to-red-600",
+      badgeColor: "bg-gradient-to-r from-primary-500 to-primary-600",
       rating: 4.6,
       reviews: 1567
     },
@@ -69,7 +70,7 @@ const ProductPage = () => {
       image: "https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=400&h=400&fit=crop",
       features: ["Custom SSD", "Ray Tracing", "Haptic Feedback"],
       badge: "Gaming Beast",
-      badgeColor: "bg-gradient-to-r from-red-600 to-red-700",
+      badgeColor: "bg-gradient-to-r from-primary-600 to-primary-700",
       rating: 4.8,
       reviews: 4521
     }
@@ -105,8 +106,17 @@ const ProductPage = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className=" bg-gradient-to-br from-gray-50 to-primary-100 min-h-screen">
+       <HeaderBanner
+        title="Our Products"
+        subtitle="Latest Technology"
+        description="Discover cutting-edge technology crafted for excellence and innovation. From laptops to smartphones, we have everything you need to stay connected and productive."
+        icon={<ShoppingCart className="w-10 h-10" />}
+
+        
+
+        />
+      <div className="md:w-10/12 mx-auto px-4 py-10 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
              <h1 className="text-5xl font-bold bg-gradient-to-r from-gray-800 via-primary-500 to-gray-800 bg-clip-text text-transparent mb-4">
@@ -127,7 +137,7 @@ const ProductPage = () => {
               placeholder="Search products..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
           <div className="flex gap-2 flex-wrap">
@@ -138,7 +148,7 @@ const ProductPage = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-xl font-medium transition-all ${
                   selectedCategory === category
-                    ? 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg'
+                    ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg'
                     : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
                 }`}
               >
@@ -175,13 +185,13 @@ const ProductPage = () => {
                     onClick={() => toggleFavorite(product.id)}
                     className={`p-2 rounded-full backdrop-blur-sm transition-all ${
                       favorites.has(product.id)
-                        ? 'bg-red-500 text-white'
-                        : 'bg-white/80 text-gray-600 hover:bg-red-500 hover:text-white'
+                        ? 'bg-primary-500 text-white'
+                        : 'bg-white/80 text-gray-600 hover:bg-primary-500 hover:text-white'
                     }`}
                   >
                     <Heart size={18} fill={favorites.has(product.id) ? 'currentColor' : 'none'} />
                   </button>
-                  <button className="p-2 rounded-full bg-white/80 text-gray-600 hover:bg-red-500 hover:text-white transition-all backdrop-blur-sm">
+                  <button className="p-2 rounded-full bg-white/80 text-gray-600 hover:bg-primary-500 hover:text-white transition-all backdrop-blur-sm">
                     <Eye size={18} />
                   </button>
                 </div>
@@ -198,7 +208,7 @@ const ProductPage = () => {
               {/* Content */}
               <div className="p-6">
                 <div className="flex justify-between items-start mb-2">
-                  <span className="text-red-600 text-sm font-bold bg-red-50 px-2 py-1 rounded-lg">
+                  <span className="text-primary-600 text-sm font-bold bg-primary-50 px-2 py-1 rounded-lg">
                     {product.category}
                   </span>
                   <div className="flex items-center gap-1">
@@ -207,7 +217,7 @@ const ProductPage = () => {
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
                   {product.name}
                 </h3>
                 
@@ -215,7 +225,7 @@ const ProductPage = () => {
                 <div className="space-y-2 mb-6">
                   {product.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-gradient-to-r from-red-500 to-red-600 rounded-full"></div>
+                      <div className="w-1.5 h-1.5 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full"></div>
                       <span className="text-gray-600 text-sm">{feature}</span>
                     </div>
                   ))}
@@ -223,11 +233,11 @@ const ProductPage = () => {
                 
                 {/* Actions */}
                 <div className="flex gap-2">
-                  <button className="flex-1 bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg hover:scale-105 transition-all">
+                  <button className="flex-1 bg-gradient-to-r from-primary-600 to-primary-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg hover:scale-105 transition-all">
                     <ShoppingCart size={18} />
                   Learn More
                   </button>
-                  <button className="px-4 py-3 border-2 border-red-600 text-red-600 rounded-xl hover:bg-red-600 hover:text-white transition-all">
+                  <button className="px-4 py-3 border-2 border-primary-600 text-primary-600 rounded-xl hover:bg-primary-600 hover:text-white transition-all">
                     <ChevronRight size={18} />
                   </button>
                 </div>

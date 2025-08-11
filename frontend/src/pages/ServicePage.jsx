@@ -16,11 +16,16 @@ import {
   ArrowRight,
   Zap,
   Users,
-  Headphones
+  Headphones,
+  Home
 } from "lucide-react";
+import HeaderBanner from "../components/HeaderBanner";
+import { useNavigate } from "react-router-dom";
 
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('sales');
+
+  const navigate = useNavigate()
 
   const salesServices = [
     {
@@ -121,6 +126,23 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-primary-50">
       {/* Header */}
       
+ <HeaderBanner
+        title="Professional Services"
+        subtitle="Expert Solutions"
+        description="From cutting-edge device sales to expert repair services - we've got all your technology needs covered with professional expertise and guaranteed satisfaction."
+        icon={<Wrench className="w-10 h-10" />}
+        breadcrumb={[
+          { label: "Home", href: "/", icon: <Home className="w-4 h-4" /> },
+          { label: "Services", href: "/services" }
+        ]}
+        primaryButton={{
+          text: "Get Quote",
+          icon: <Phone className="w-5 h-5" />,
+          onClick: () => navigate('/contact')
+        }}
+      
+        backgroundStyle="image"
+      />
 
     
 

@@ -20,6 +20,7 @@ import {
   Briefcase,
   GraduationCap
 } from "lucide-react";
+import HeaderBanner from "../components/HeaderBanner";
 
 export default function AboutPage() {
   const [activeTeamMember, setActiveTeamMember] = useState(0);
@@ -120,6 +121,16 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-primary-50">
       {/* Header Section */}
+
+      <HeaderBanner
+  title="About Us"
+  subtitle="Kalinga Technology"
+  description="Your trusted partner in technology solutions since 2014. We're passionate about bringing you the best in technology sales, expert repairs, and exceptional customer service."
+  icon={<Users className="w-10 h-10" />}
+ 
+ 
+  backgroundStyle="image"
+/>
       <section className="py-20 bg-white">
         <div className="w-10/12 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -163,40 +174,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-50 to-primary-100">
-        <div className="w-10/12 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-gray-900 mb-4">Meet Our Team</h3>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              The experts behind our exceptional service
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2">
-                <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden shadow-lg">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <h4 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h4>
-                <p className="text-primary-600 font-semibold mb-2">{member.position}</p>
-                <div className="flex items-center justify-center space-x-2 mb-4">
-                  <Briefcase className="w-4 h-4 text-gray-500" />
-                  <span className="text-gray-600 text-sm">{member.experience}</span>
-                </div>
-                <p className="text-gray-600 text-sm mb-4">{member.specialization}</p>
-                <p className="text-gray-700 text-sm">{member.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+    
       
 
       {/* Timeline Section */}

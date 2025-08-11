@@ -17,8 +17,10 @@ import {
   Twitter,
   Instagram,
   Linkedin,
-  ArrowRight
+  ArrowRight,
+  Home
 } from "lucide-react";
+import HeaderBanner from "../components/HeaderBanner";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -113,18 +115,31 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-primary-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-primary-100">
 
 
    <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 right-10 w-32 h-32 bg-red-100 rounded-full opacity-20"></div>
-        <div className="absolute bottom-20 left-10 w-24 h-24 bg-red-200 rounded-full opacity-30"></div>
-        <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-red-300 rounded-full opacity-15"></div>
+        <div className="absolute top-10 right-10 w-32 h-32 bg-primary-100 rounded-full opacity-20"></div>
+        <div className="absolute bottom-20 left-10 w-24 h-24 bg-primary-200 rounded-full opacity-30"></div>
+        <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-primary-300 rounded-full opacity-15"></div>
       </div>
       
+      <HeaderBanner
+        title="Get in Touch"
+        subtitle="We're Here to Help"
+        description="Have questions about our products or services? Our expert team is ready to assist you with personalized solutions and professional support."
+        icon={<Phone className="w-10 h-10" />}
+        breadcrumb={[
+          { label: "Home", href: "/", icon: <Home className="w-4 h-4" /> },
+          { label: "Contact", href: "/contact" }
+        ]}
+       
+        backgroundStyle="solid"
+      />
       <div className="w-10/12 mx-auto px-4 sm:px-6 lg:px-8 relative py-5">
+       {/* Contact Page Example */}
         <div className="text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-800 via-red-500 to-gray-800 bg-clip-text text-transparent mb-6">
+          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-800 via-primary-500 to-gray-800 bg-clip-text text-transparent mb-6">
             Contact Us
           </h1>
           <p className="text-md md:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
@@ -134,15 +149,15 @@ export default function ContactPage() {
           
           {/* Quick contact badges */}
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <div className="flex items-center bg-red-50 text-red-700 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="flex items-center bg-primary-50 text-primary-700 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-all duration-300">
               <Phone size={16} className="mr-2" />
               <span className="font-medium">+250 123 456 789</span>
             </div>
-            <div className="flex items-center bg-red-50 text-red-700 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="flex items-center bg-primary-50 text-primary-700 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-all duration-300">
               <Mail size={16} className="mr-2" />
               <span className="font-medium">info@kalingatech.rw</span>
             </div>
-            <div className="flex items-center bg-red-50 text-red-700 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="flex items-center bg-primary-50 text-primary-700 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-all duration-300">
               <Clock size={16} className="mr-2" />
               <span className="font-medium">Mon-Fri 8AM-6PM</span>
             </div>
@@ -151,7 +166,7 @@ export default function ContactPage() {
         </div>
 
       {/* Contact Methods */}
-      <section className="py-20 bg-white">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h3 className="text-4xl font-bold text-gray-900 mb-4">Choose Your Preferred Way</h3>
@@ -190,7 +205,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form & Map Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-50 to-primary-100">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -316,7 +331,7 @@ export default function ContactPage() {
             </div>
 
             {/* Office Locations */}
-            <div className="space-y-8">
+            <div className="space-y-8 ">
               <div>
                 <h3 className="text-3xl font-bold text-gray-900 mb-8">Visit Our Offices</h3>
                 {officeLocations.map((office, index) => (
@@ -353,25 +368,6 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* Social Media */}
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h4 className="text-xl font-bold text-gray-900 mb-4">Follow Us</h4>
-                <p className="text-gray-600 mb-6">Stay connected for updates and tech tips</p>
-                <div className="flex space-x-4">
-                  <a href="#" className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
-                    <Facebook className="w-6 h-6" />
-                  </a>
-                  <a href="#" className="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center text-white hover:bg-blue-500 transition-colors">
-                    <Twitter className="w-6 h-6" />
-                  </a>
-                  <a href="#" className="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center text-white hover:bg-pink-700 transition-colors">
-                    <Instagram className="w-6 h-6" />
-                  </a>
-                  <a href="#" className="w-12 h-12 bg-blue-800 rounded-lg flex items-center justify-center text-white hover:bg-blue-900 transition-colors">
-                    <Linkedin className="w-6 h-6" />
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
